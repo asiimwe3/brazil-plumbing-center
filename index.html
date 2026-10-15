@@ -155,6 +155,16 @@ footer.site a{color:var(--yellow)}
   .map{height:auto;min-height:340px}
 }
 
+
+/* ---- zoom lightbox ---- */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(4,8,22,.95);display:none;align-items:center;justify-content:center;touch-action:none}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:100%;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;transform-origin:center;transition:transform .18s ease;will-change:transform}
+.lb.dragging img{transition:none}
+.lb .lb-x{position:absolute;top:12px;right:12px;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:26px;line-height:1;cursor:pointer;z-index:2}
+.lb .lb-cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px calc(14px + env(safe-area-inset-bottom));color:#fff;text-align:center;font-size:14px;background:linear-gradient(transparent,rgba(0,0,0,.65));pointer-events:none}
+.lb .lb-hint{position:absolute;top:14px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.55);font-size:12px;pointer-events:none}
+@media(min-width:900px){.lb{cursor:zoom-out}}
 @media(prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
 </style>
 </head>
@@ -345,5 +355,48 @@ footer.site a{color:var(--yellow)}
 })();
 </script>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}</script>
+
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+  <button class="lb-x" id="lbX" aria-label="Close">&times;</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+  <div class="lb-hint">Pinch or double-tap to zoom &middot; drag to pan</div>
+</div>
+<script>
+/* ---- zoomable photo lightbox ---- */
+(function(){
+  var lb=document.getElementById('lb'),im=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
+  var sc=1,tx=0,ty=0,p0=null,lastTap=0;
+  function apply(){im.style.transform='translate('+tx+'px,'+ty+'px) scale('+sc+')'}
+  function open(src,alt){im.src=src;im.alt=alt||'';cap.textContent=alt||'';sc=1;tx=ty=0;apply();lb.classList.add('on');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('on');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';im.src=''}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('.gal img,.card img');
+    if(t&&!e.target.closest('.atc')){open(t.currentSrc||t.src,t.alt)}
+  });
+  document.getElementById('lbX').onclick=close;
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  /* pinch zoom */
+  function dist(t){var dx=t[0].clientX-t[1].clientX,dy=t[0].clientY-t[1].clientY;return Math.hypot(dx,dy)}
+  lb.addEventListener('touchstart',function(e){
+    if(e.touches.length===2){p0={d:dist(e.touches),sc:sc,tx:tx,ty:ty,cx:(e.touches[0].clientX+e.touches[1].clientX)/2,cy:(e.touches[0].clientY+e.touches[1].clientY)/2};lb.classList.add('dragging')}
+    else if(e.touches.length===1){p1={x:e.touches[0].clientX,y:e.touches[0].clientY,tx:tx,ty:ty};if(sc>1)lb.classList.add('dragging')}
+    var n=Date.now();if(n-lastTap<300&&!p0){sc=sc>1?1:2.5;tx=ty=0;apply()}lastTap=n;
+  },{passive:true});
+  lb.addEventListener('touchmove',function(e){
+    if(p0&&e.touches.length===2){
+      var f=Math.min(4,Math.max(1,(dist(e.touches)/p0.d)*p0.sc));
+      sc=f;tx=p0.tx;ty=p0.ty;apply();e.preventDefault();
+    }else if(p1&&e.touches.length===1&&sc>1){
+      tx=p1.tx+(e.touches[0].clientX-p1.x);ty=p1.ty+(e.touches[0].clientY-p1.y);apply();e.preventDefault();
+    }
+  },{passive:false});
+  lb.addEventListener('touchend',function(){p0=null;p1=null;lb.classList.remove('dragging');if(sc<=1){tx=ty=0;apply()}},{passive:true});
+  /* desktop wheel zoom */
+  lb.addEventListener('wheel',function(e){e.preventDefault();var f=sc*(e.deltaY<0?1.15:0.87);sc=Math.min(4,Math.max(1,f));if(sc<=1){tx=ty=0}apply()},{passive:false});
+})();
+</script>
+
 </body>
 </html>
