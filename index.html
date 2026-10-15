@@ -169,10 +169,7 @@ footer.site a{color:var(--yellow)}
 .pc .body{padding:10px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
 .pc .cat{font-size:10.5px;font-weight:800;color:var(--blue3);letter-spacing:.08em;text-transform:uppercase}
 .pc .nm{font-size:14.5px;font-weight:700;color:#14213d;line-height:1.35;min-height:38px}
-.pc .pr{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.pc .pr b{font-size:17px;color:#111}
-.pc .pr s{font-size:12px;color:#8a93a6}
-.pc .save{font-size:11px;font-weight:800;color:#fff;background:var(--red);border-radius:4px;padding:2px 6px}
+.pc .ask{font-size:13.5px;font-weight:800;color:var(--blue2);background:#eef1fb;border-radius:6px;padding:8px 10px;text-align:center;text-decoration:none}
 .pc .atc{margin-top:auto;border:0;border-radius:8px;background:var(--yellow);color:var(--blue2);font-weight:800;font-size:13.5px;padding:10px;cursor:pointer;transition:.25s}
 .pc .atc:hover{filter:brightness(1.05)}
 .badge-new{position:absolute;top:8px;left:8px;background:var(--blue2);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;z-index:2}
@@ -267,7 +264,7 @@ footer.site a{color:var(--yellow)}
   <div class="wrap">
     <span class="eyebrow" style="color:var(--red)">Order on WhatsApp</span>
     <h2 class="sec-title">Shop &amp; order like Jumia &mdash; checkout on WhatsApp</h2>
-    <p class="sec-sub">Add items to your cart, then send the full order to us on WhatsApp. We confirm stock and delivery instantly.</p>
+    <p class="sec-sub">Browse the shop, add what you need to your order, then send it to us on WhatsApp for prices, stock and delivery. Every item can also be priced instantly on WhatsApp.</p>
     <div class="shop-tools">
       <div class="shop-search"><span>&#128269;</span><input id="shopQ" type="search" placeholder="Search toilets, sinks, fittings..." aria-label="Search products"></div>
     </div>
@@ -275,7 +272,7 @@ footer.site a{color:var(--yellow)}
       <button data-c="all" class="on">All</button><button data-c="toilets">Toilets &amp; Basins</button><button data-c="showers">Showers &amp; Mixers</button><button data-c="sinks">Kitchen Sinks</button><button data-c="pipes">Pipes &amp; Fittings</button><button data-c="accessories">Accessories</button>
     </div>
     <div class="grid-shop" id="shopGrid"></div>
-    <p class="shop-note">Prices are indicative and change with stock &mdash; your WhatsApp order gets the exact, current price. Delivery available within Fort Portal City.</p>
+    <p class="shop-note">All prices on request &mdash; tap "Ask price on WhatsApp" on any item, or send your full order list and we reply with prices and delivery cost. Delivery available within Fort Portal City.</p>
   </div>
 </section>
 
@@ -352,9 +349,8 @@ footer.site a{color:var(--yellow)}
     <div class="hd"><span>Your Order</span><button id="cartClose" aria-label="Close cart">&times;</button></div>
     <div class="items" id="cartItems"></div>
     <div class="ft">
-      <div class="tot"><span>Total (approx.)</span><span id="cartTotal">UGX 0</span></div>
       <a class="wa-order" id="waOrder" href="#" target="_blank" rel="noopener">&#128172; Send Order on WhatsApp</a>
-      <p class="shop-note" style="margin-top:8px">We reply with exact prices, stock and delivery cost.</p>
+      <p class="shop-note" style="margin-top:8px">We reply with prices, stock and delivery cost.</p>
     </div>
   </aside>
 </div>
@@ -412,41 +408,40 @@ footer.site a{color:var(--yellow)}
 </script>
 
 <script>
-/* ---- Jumia-style shop with WhatsApp checkout ---- */
+/* ---- Jumia-style shop, prices on request via WhatsApp ---- */
 (function(){
   var WA="256752797671";
   var P=[
-    {id:"t1",c:"toilets",n:"One-Piece Toilet (White)",pr:380000,old:420000,img:"assets/real-toilets.jpg",tag:"Hot"},
-    {id:"t2",c:"toilets",n:"One-Piece Toilet (Grey Marble)",pr:420000,old:480000,img:"assets/real-toilets.jpg"},
-    {id:"t3",c:"toilets",n:"Pedestal Wash Hand Basin",pr:120000,old:0,img:"assets/real-basins.jpg",tag:"New"},
-    {id:"t4",c:"toilets",n:"Counter-Top Basin with Tap Hole",pr:95000,old:0,img:"assets/real-basins.jpg"},
-    {id:"s1",c:"showers",n:"Rain Shower Set (Chrome)",pr:85000,old:105000,img:"assets/real-showers.jpg",tag:"Hot"},
-    {id:"s2",c:"showers",n:"Rain Shower Set (Matte Black)",pr:95000,old:0,img:"assets/real-showers.jpg"},
-    {id:"s3",c:"showers",n:"Rain Shower Set (Brushed Gold)",pr:110000,old:130000,img:"assets/real-showers.jpg"},
-    {id:"k1",c:"sinks",n:"Double-Bowl Kitchen Sink (Steel)",pr:180000,old:210000,img:"assets/sinks.png"},
-    {id:"k2",c:"sinks",n:"Single-Bowl Kitchen Sink + Waste",pr:120000,old:0,img:"assets/sinks.png"},
-    {id:"p1",c:"pipes",n:"PVC Pipe 4&quot; x 6m (Pressure)",pr:28000,old:0,img:"assets/fittings.png"},
-    {id:"p2",c:"pipes",n:"PVC Gutter 4m + Brackets",pr:22000,old:26000,img:"assets/fittings.png"},
-    {id:"p3",c:"pipes",n:"GI Fittings Assorted (per piece)",pr:6000,old:0,img:"assets/fittings.png"},
-    {id:"a1",c:"accessories",n:"Towel Bar 60cm (Chrome)",pr:18000,old:0,img:"assets/real-accessories.jpg"},
-    {id:"a2",c:"accessories",n:"Ceramic Soap Dish (Chrome)",pr:8000,old:10000,img:"assets/real-accessories.jpg"},
-    {id:"a3",c:"accessories",n:"Robe Hook Set of 2 (Matte Black)",pr:12000,old:0,img:"assets/real-accessories.jpg"},
-    {id:"a4",c:"accessories",n:"Bathroom Shelf Corner (Gold)",pr:25000,old:30000,img:"assets/real-accessories.jpg"}
+    {id:"t1",c:"toilets",n:"One-Piece Toilet (White)",img:"assets/real-toilets.jpg",tag:"Hot"},
+    {id:"t2",c:"toilets",n:"One-Piece Toilet (Grey Marble)",img:"assets/real-toilets.jpg"},
+    {id:"t3",c:"toilets",n:"Pedestal Wash Hand Basin",img:"assets/real-basins.jpg",tag:"New"},
+    {id:"t4",c:"toilets",n:"Counter-Top Basin with Tap Hole",img:"assets/real-basins.jpg"},
+    {id:"s1",c:"showers",n:"Rain Shower Set (Chrome)",img:"assets/real-showers.jpg",tag:"Hot"},
+    {id:"s2",c:"showers",n:"Rain Shower Set (Matte Black)",img:"assets/real-showers.jpg"},
+    {id:"s3",c:"showers",n:"Rain Shower Set (Brushed Gold)",img:"assets/real-showers.jpg"},
+    {id:"k1",c:"sinks",n:"Double-Bowl Kitchen Sink (Steel)",img:"assets/sinks.png"},
+    {id:"k2",c:"sinks",n:"Single-Bowl Kitchen Sink + Waste",img:"assets/sinks.png"},
+    {id:"p1",c:"pipes",n:"PVC Pipe 4&quot; x 6m (Pressure)",img:"assets/fittings.png"},
+    {id:"p2",c:"pipes",n:"PVC Gutter 4m + Brackets",img:"assets/fittings.png"},
+    {id:"p3",c:"pipes",n:"GI Fittings Assorted (per piece)",img:"assets/fittings.png"},
+    {id:"a1",c:"accessories",n:"Towel Bar 60cm (Chrome)",img:"assets/real-accessories.jpg"},
+    {id:"a2",c:"accessories",n:"Ceramic Soap Dish (Chrome)",img:"assets/real-accessories.jpg"},
+    {id:"a3",c:"accessories",n:"Robe Hook Set of 2 (Matte Black)",img:"assets/real-accessories.jpg"},
+    {id:"a4",c:"accessories",n:"Bathroom Shelf Corner (Gold)",img:"assets/real-accessories.jpg"}
   ];
   var cart={}; try{cart=JSON.parse(localStorage.getItem("bpc_cart")||"{}")}catch(e){cart={}}
   var q="",cat="all";
   var grid=document.getElementById("shopGrid");
-  function fmt(v){return "UGX "+v.toLocaleString("en-UG")}
   function save(){try{localStorage.setItem("bpc_cart",JSON.stringify(cart))}catch(e){}}
+  function askLink(p){return "https://wa.me/"+WA+"?text="+encodeURIComponent("Hello Brazil Plumbing Center, what is the price of "+p.n.replace(/&quot;/g,'"')+"?")}
   function render(){
     var f=P.filter(function(p){return (cat==="all"||p.c===cat)&&p.n.toLowerCase().indexOf(q)>-1});
     grid.innerHTML=f.map(function(p){
-      var off=p.old?Math.round((1-p.pr/p.old)*100):0;
       return '<article class="pc">'+(p.tag?'<span class="badge-new">'+p.tag+'</span>':'')+
         '<div class="ph"><img src="'+p.img+'" alt="'+p.n.replace(/"/g,"&quot;")+'" loading="lazy"></div>'+
         '<div class="body"><span class="cat">'+catName(p.c)+'</span><span class="nm">'+p.n+'</span>'+
-        '<span class="pr"><b>'+fmt(p.pr)+'</b>'+(p.old?'<s>'+fmt(p.old)+'</s><span class="save">-'+off+'%</span>':'')+'</span>'+
-        '<button class="atc" data-add="'+p.id+'">Add to Cart</button></div></article>';
+        '<a class="ask" href="'+askLink(p)+'" target="_blank" rel="noopener">&#128172; Ask price on WhatsApp</a>'+
+        '<button class="atc" data-add="'+p.id+'">Add to Order</button></div></article>';
     }).join("")||'<p style="grid-column:1/-1;text-align:center;color:#5c667e;padding:30px">No products match your search. Ask us on WhatsApp &mdash; we stock much more!</p>';
     grid.querySelectorAll("[data-add]").forEach(function(b){b.onclick=function(){add(b.dataset.add)}});
   }
@@ -459,19 +454,18 @@ footer.site a{color:var(--yellow)}
     e.target.classList.add("on");cat=e.target.dataset.c;render();
   });
   function drawCart(){
-    var n=0,tot=0,html="";
+    var n=0,html="";
     Object.keys(cart).forEach(function(id){
       var p=P.find(function(x){return x.id===id}); if(!p)return;
-      n+=cart[id]; tot+=cart[id]*p.pr;
-      html+='<div class="ci"><img src="'+p.img+'" alt=""><div class="t">'+p.n+'<small>'+fmt(p.pr)+'</small></div>'+
+      n+=cart[id];
+      html+='<div class="ci"><img src="'+p.img+'" alt=""><div class="t">'+p.n+'<small>Qty: '+cart[id]+'</small></div>'+
         '<div class="qty"><button data-d="'+id+'">&minus;</button><span>'+cart[id]+'</span><button data-u="'+id+'">+</button></div>'+
         '<button class="rm" data-r="'+id+'">Remove</button></div>';
     });
-    document.getElementById("cartItems").innerHTML=html||'<p style="text-align:center;color:#5c667e;padding:24px 8px">Your cart is empty. Add plumbing items from the shop above.</p>';
+    document.getElementById("cartItems").innerHTML=html||'<p style="text-align:center;color:#5c667e;padding:24px 8px">Your order list is empty. Add plumbing items from the shop above.</p>';
     document.getElementById("cartN").textContent=n;
-    document.getElementById("cartTotal").textContent=fmt(tot);
-    var lines=Object.keys(cart).map(function(id){var p=P.find(function(x){return x.id===id});return cart[id]+" x "+p.n+" = "+fmt(cart[id]*p.pr)});
-    var msg="Hello Brazil Plumbing Center, I would like to ORDER:%0A"+(lines.length?lines.join("%0A")+"%0A%0ATOTAL (approx.): "+fmt(tot)+"%0A%0APlease confirm exact prices and delivery.":"(I need advice)");
+    var lines=Object.keys(cart).map(function(id){var p=P.find(function(x){return x.id===id});return cart[id]+" x "+p.n});
+    var msg="Hello Brazil Plumbing Center, I would like to ORDER:%0A"+(lines.length?lines.join("%0A")+"%0A%0APlease send me the prices and delivery cost.":"(I need advice)");
     document.getElementById("waOrder").href="https://wa.me/"+WA+"?text="+msg;
     save();
   }
