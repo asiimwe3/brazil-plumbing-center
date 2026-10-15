@@ -1,6 +1,6 @@
 # Brazil Plumbing Center
 
-**Live site:** https://asiimwe3.github.io/brazil-plumbing-center/
+**Live site:** https://brazil-plumbing-center.vercel.app/
 
 Website for Brazil Plumbing Center — plumbing supplies shop on Ruhandika Street, Fort Portal City, Uganda. "Everything you need in plumbing under one roof."
 
