@@ -8,7 +8,7 @@
 <meta name="keywords" content="plumbing Fort Portal, plumbing supplies Fort Portal, PVC fittings Uganda, GI fittings, toilets wash hand basins Fort Portal, Brazil Plumbing Center, Ruhandika Street plumbing">
 <meta property="og:title" content="Brazil Plumbing Center — Fort Portal">
 <meta property="og:description" content="Everything you need in plumbing under one roof. Ruhandika Street, Fort Portal City. Call 0752 797 671.">
-<meta property="og:image" content="https://asiimwe3.github.io/brazil-plumbing-center/assets/hero.png">
+<meta property="og:image" content="https://asiimwe3.github.io/brazil-plumbing-center/assets/real-hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://asiimwe3.github.io/brazil-plumbing-center/">
 <meta name="theme-color" content="#1c2a7a">
@@ -69,7 +69,7 @@ header{position:sticky;top:0;z-index:60;background:var(--blue);color:#fff;box-sh
 
 /* hero */
 .hero{position:relative;background:var(--blue2);color:#fff;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,29,92,.72),rgba(20,29,92,.9)),url('assets/hero.png') center/cover no-repeat}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,29,92,.72),rgba(20,29,92,.9)),url('assets/real-hero.jpg') center/cover no-repeat}
 .hero-inner{position:relative;padding:44px 18px 48px;max-width:1080px;margin:0 auto;text-align:center}
 .hero .eyebrow{color:var(--yellow)}
 .hero h1{font-family:Georgia,serif;font-size:clamp(34px,10vw,58px);line-height:1.06;margin-bottom:10px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
@@ -88,6 +88,15 @@ header{position:sticky;top:0;z-index:60;background:var(--blue);color:#fff;box-sh
 .card-body{padding:14px 14px 16px;flex:1}
 .card h3{font-size:16.5px;margin-bottom:4px;line-height:1.25}
 .card p{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+
+/* showroom gallery */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gal figure{border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(20,30,90,.14);background:#fff}
+.gal figure:first-child{grid-column:1/-1}
+.gal img{width:100%;height:230px;object-fit:cover}
+.gal figure:first-child img{height:300px}
+@media(min-width:700px){.gal{grid-template-columns:repeat(3,1fr);gap:16px}.gal figure:first-child{grid-column:auto}.gal img,.gal figure:first-child img{height:340px}}
 
 /* why */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -154,6 +163,7 @@ footer.site a{color:var(--yellow)}
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
     <div class="nav-links" id="navLinks">
       <a href="#products">Products</a>
+      <a href="#showroom">Showroom</a>
       <a href="#why">Why Us</a>
       <a href="#contact">Find Us</a>
       <a class="nav-cta" href="https://wa.me/256752797671?text=Hello%20Brazil%20Plumbing%20Center%2C%20I%20am%20looking%20for%20plumbing%20materials." target="_blank" rel="noopener">WhatsApp Us</a>
@@ -184,23 +194,36 @@ footer.site a{color:var(--yellow)}
     <p class="sec-sub">From full bathroom suites to the smallest fitting — if it carries water, we stock it.</p>
     <div class="grid">
       <div class="card">
-        <img src="assets/toilets.png" alt="White toilets and wash hand basins at Brazil Plumbing Center Fort Portal" loading="lazy">
-        <div class="card-body"><h3>Toilets &amp; Wash Hand Basins</h3><p>White ceramic toilets, cisterns, seats and pedestal basins for homes, offices and institutions.</p></div>
+        <img src="assets/real-toilets.jpg" alt="Toilets on display at Brazil Plumbing Center showroom, Fort Portal" loading="lazy">
+        <div class="card-body"><h3>Toilets &amp; Wash Hand Basins</h3><p>One-piece toilets in white, black and grey marble finishes, plus pedestal and countertop basins for homes, offices and institutions.</p></div>
       </div>
       <div class="card">
-        <img src="assets/sinks.png" alt="Kitchen sinks and shower mixers at Brazil Plumbing Center Fort Portal" loading="lazy">
-        <div class="card-body"><h3>Kitchen Sinks &amp; Shower Mixers</h3><p>Stainless steel sinks, modern shower sets, mixers and bathroom fixtures for every budget.</p></div>
+        <img src="assets/real-showers.jpg" alt="Shower sets and mixer taps at Brazil Plumbing Center Fort Portal" loading="lazy">
+        <div class="card-body"><h3>Kitchen Sinks &amp; Shower Mixers</h3><p>Rain shower sets in chrome, black and gold, mixer taps and kitchen sinks for every budget.</p></div>
       </div>
       <div class="card">
         <img src="assets/fittings.png" alt="PVC and GI pipe fittings at Brazil Plumbing Center Fort Portal" loading="lazy">
         <div class="card-body"><h3>PVC &amp; GI Fittings</h3><p>PVC pipes, elbows, tees, gutters and galvanized iron fittings in all sizes, always in stock.</p></div>
       </div>
       <div class="card">
-        <img src="assets/hero.png" alt="Plumbing accessories aisle at Brazil Plumbing Center Fort Portal" loading="lazy">
-        <div class="card-body"><h3>All Plumbing Accessories</h3><p>Taps, valves, water tanks, pumps, hoses, sealants — every accessory for a complete job.</p></div>
+        <img src="assets/real-accessories.jpg" alt="Bathroom accessories wall at Brazil Plumbing Center Fort Portal" loading="lazy">
+        <div class="card-body"><h3>All Plumbing Accessories</h3><p>Towel racks, hooks, soap holders, shelves and rings in chrome, black and gold, plus taps, valves and hoses.</p></div>
       </div>
     </div>
     <p style="margin-top:24px;font-size:15px;color:var(--muted)">Looking for something specific? <a href="https://wa.me/256752797671?text=Hello%20Brazil%20Plumbing%20Center%2C%20do%20you%20stock%20" target="_blank" rel="noopener"><b>Ask on WhatsApp</b></a> — we'll confirm stock and price immediately.</p>
+  </div>
+</section>
+
+<section class="sec" id="showroom">
+  <div class="wrap">
+    <span class="eyebrow">The Showroom</span>
+    <h2 class="sec-title">See it before you buy</h2>
+    <p class="sec-sub">Walk in and choose from a full display of toilets, basins, shower sets and bathroom accessories on Ruhandika Street.</p>
+    <div class="gal">
+      <figure><img src="assets/gallery-3.jpg" alt="Toilets, basins and accessory wall in the Brazil Plumbing Center showroom" loading="lazy"></figure>
+      <figure><img src="assets/gallery-2.jpg" alt="Shower sets, mixer taps and pedestal basins on display" loading="lazy"></figure>
+      <figure><img src="assets/gallery-1.jpg" alt="Row of one-piece toilets and bathroom accessories" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 
