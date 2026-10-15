@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://brazil-plumbing-center.vercel.app/sitemap.xml
+Sitemap: https://brazilplumbingcenter.online/sitemap.xml
