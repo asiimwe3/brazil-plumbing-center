@@ -155,48 +155,6 @@ footer.site a{color:var(--yellow)}
   .map{height:auto;min-height:340px}
 }
 
-/* ---- shop (jumia style) ---- */
-.shop-tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
-.shop-search{flex:1;min-width:180px;display:flex;align-items:center;background:#fff;border:2px solid var(--yellow);border-radius:10px;padding:10px 14px;gap:8px}
-.shop-search input{border:0;outline:0;flex:1;font-size:15px;background:transparent;color:#111}
-.shop-chips{display:flex;gap:8px;overflow-x:auto;padding:8px 0 2px;-webkit-overflow-scrolling:touch}
-.shop-chips button{border:1.5px solid var(--blue2);background:#fff;color:var(--blue2);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
-.shop-chips button.on{background:var(--blue2);color:#fff}
-.grid-shop{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.pc{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,20,60,.08);display:flex;flex-direction:column;position:relative}
-.pc .ph{aspect-ratio:1/1;overflow:hidden;background:#f4f6fb;position:relative}
-.pc .ph img{width:100%;height:100%;object-fit:contain;transition:.35s}
-.pc:hover .ph img{transform:scale(1.06)}
-.pc .body{padding:10px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
-.pc .cat{font-size:10.5px;font-weight:800;color:var(--blue3);letter-spacing:.08em;text-transform:uppercase}
-.pc .nm{font-size:14.5px;font-weight:700;color:#14213d;line-height:1.35;min-height:38px}
-.pc .ask{font-size:13.5px;font-weight:800;color:var(--blue2);background:#eef1fb;border-radius:6px;padding:8px 10px;text-align:center;text-decoration:none}
-.pc .atc{margin-top:auto;border:0;border-radius:8px;background:var(--yellow);color:var(--blue2);font-weight:800;font-size:13.5px;padding:10px;cursor:pointer;transition:.25s}
-.pc .atc:hover{filter:brightness(1.05)}
-.badge-new{position:absolute;top:8px;left:8px;background:var(--blue2);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;z-index:2}
-.cart-fab{position:fixed;left:16px;bottom:calc(var(--bar) + 12px);z-index:60;background:var(--blue2);color:#fff;border-radius:999px;padding:12px 18px;font-weight:800;display:flex;gap:10px;align-items:center;box-shadow:0 10px 24px rgba(0,45,95,.45);cursor:pointer;border:0;font-size:15px}
-.cart-fab .n{background:var(--yellow);color:var(--blue2);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px}
-.cart-drawer{position:fixed;inset:0;z-index:120;display:none}
-.cart-drawer.open{display:block}
-.cart-drawer .veil{position:absolute;inset:0;background:rgba(0,10,30,.55)}
-.cart-drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(400px,100%);background:#fff;display:flex;flex-direction:column}
-.cart-drawer .hd{background:var(--blue2);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
-.cart-drawer .hd button{background:none;border:0;color:#fff;font-size:26px;cursor:pointer;line-height:1}
-.cart-drawer .items{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
-.ci{display:flex;gap:10px;align-items:center;border:1px solid #e6e9f2;border-radius:10px;padding:8px}
-.ci img{width:46px;height:46px;object-fit:contain;border-radius:6px;background:#f4f6fb}
-.ci .t{flex:1;font-size:13.5px;font-weight:700;color:#14213d;line-height:1.3}
-.ci .t small{display:block;color:#5c667e;font-weight:600}
-.ci .qty{display:flex;align-items:center;gap:8px}
-.ci .qty button{width:26px;height:26px;border-radius:6px;border:1.5px solid var(--blue2);background:#fff;color:var(--blue2);font-weight:800;cursor:pointer}
-.ci .qty span{font-weight:800;min-width:16px;text-align:center;font-size:14px}
-.ci .rm{background:none;border:0;color:#c33;font-size:12px;font-weight:700;cursor:pointer}
-.cart-drawer .ft{border-top:1px solid #e6e9f2;padding:12px 14px;background:#fff}
-.cart-drawer .tot{display:flex;justify-content:space-between;font-weight:800;font-size:16px;color:#14213d;margin-bottom:10px}
-.wa-order{display:flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;border:0;border-radius:10px;padding:13px;font-weight:800;font-size:15px;text-decoration:none;width:100%}
-.shop-note{font-size:12px;color:#5c667e;margin-top:10px}
-@media(min-width:700px){.grid-shop{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1000px){.grid-shop{grid-template-columns:repeat(4,1fr)}}
 @media(prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
 </style>
 </head>
@@ -208,7 +166,6 @@ footer.site a{color:var(--yellow)}
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
     <div class="nav-links" id="navLinks">
       <a href="#products">Products</a>
-      <a href="#shop">Shop</a>
       <a href="#showroom">Showroom</a>
       <a href="#why">Why Us</a>
       <a href="#contact">Find Us</a>
@@ -260,22 +217,6 @@ footer.site a{color:var(--yellow)}
   </div>
 </section>
 
-
-<section class="sec sec-alt" id="shop">
-  <div class="wrap">
-    <span class="eyebrow" style="color:var(--red)">Order on WhatsApp</span>
-    <h2 class="sec-title">Shop &amp; order like Jumia &mdash; checkout on WhatsApp</h2>
-    <p class="sec-sub">Browse the shop, add what you need to your order, then send it to us on WhatsApp for prices, stock and delivery. Every item can also be priced instantly on WhatsApp.</p>
-    <div class="shop-tools">
-      <div class="shop-search"><span>&#128269;</span><input id="shopQ" type="search" placeholder="Search toilets, sinks, fittings..." aria-label="Search products"></div>
-    </div>
-    <div class="shop-chips" id="shopChips">
-      <button data-c="all" class="on">All</button><button data-c="toilets">Toilets &amp; Basins</button><button data-c="showers">Showers &amp; Mixers</button><button data-c="sinks">Kitchen Sinks</button><button data-c="pipes">Pipes &amp; Fittings</button><button data-c="accessories">Accessories</button>
-    </div>
-    <div class="grid-shop" id="shopGrid"></div>
-    <p class="shop-note">All prices on request &mdash; tap "Ask price on WhatsApp" on any item, or send your full order list and we reply with prices and delivery cost. Delivery available within Fort Portal City.</p>
-  </div>
-</section>
 
 <section class="sec" id="showroom">
   <div class="wrap">
@@ -342,19 +283,6 @@ footer.site a{color:var(--yellow)}
 </style>
 <div>Website by <a href="https://derycode.online" target="_blank" rel="noopener">DeryCode Technologies</a> &middot; Want one like this? WhatsApp <a href="https://wa.me/256762306675" target="_blank" rel="noopener">0762306675</a></div>
 </section>
-
-<button class="cart-fab" id="cartFab" aria-label="Open cart">&#128722; <span>Cart</span> <span class="n" id="cartN">0</span></button>
-<div class="cart-drawer" id="cartDrawer" aria-hidden="true">
-  <div class="veil" id="cartVeil"></div>
-  <aside class="panel" role="dialog" aria-label="Shopping cart">
-    <div class="hd"><span>Your Order</span><button id="cartClose" aria-label="Close cart">&times;</button></div>
-    <div class="items" id="cartItems"></div>
-    <div class="ft">
-      <a class="wa-order" id="waOrder" href="#" target="_blank" rel="noopener">&#128172; Send Order on WhatsApp</a>
-      <p class="shop-note" style="margin-top:8px">We reply with prices, stock and delivery cost.</p>
-    </div>
-  </aside>
-</div>
 <div id="dcx-popup" style="display:none;position:fixed;bottom:18px;right:16px;z-index:99999;max-width:260px;width:calc(100% - 32px);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif">
 <div style="position:relative;background:#0b1220;color:#fff;border:1px solid #22314e;border-radius:14px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.35)">
 <button id="dcx-close" aria-label="Close" style="position:absolute;top:6px;right:6px;background:rgba(11,18,32,.75);border:none;color:#fff;font-size:14px;line-height:1;cursor:pointer;padding:5px 7px;border-radius:8px">&times;</button>
@@ -405,86 +333,6 @@ footer.site a{color:var(--yellow)}
   b.addEventListener('click',function(){set(!h.classList.contains('menu-open'));});
   l.addEventListener('click',function(e){if(e.target.tagName==='A')set(false);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
-})();
-</script>
-
-<script>
-/* ---- Jumia-style shop, prices on request via WhatsApp ---- */
-(function(){
-  var WA="256752797671";
-  var P=[
-    {id:"t1",c:"toilets",n:"One-Piece Toilet (White)",img:"assets/real-toilets.webp",tag:"Hot"},
-    {id:"t2",c:"toilets",n:"One-Piece Toilet (Grey Marble)",img:"assets/real-toilets.webp"},
-    {id:"t3",c:"toilets",n:"Pedestal Wash Hand Basin",img:"assets/real-basins.webp",tag:"New"},
-    {id:"t4",c:"toilets",n:"Counter-Top Basin with Tap Hole",img:"assets/real-basins.webp"},
-    {id:"s1",c:"showers",n:"Rain Shower Set (Chrome)",img:"assets/real-showers.webp",tag:"Hot"},
-    {id:"s2",c:"showers",n:"Rain Shower Set (Matte Black)",img:"assets/real-showers.webp"},
-    {id:"s3",c:"showers",n:"Rain Shower Set (Brushed Gold)",img:"assets/real-showers.webp"},
-    {id:"k1",c:"sinks",n:"Double-Bowl Kitchen Sink (Steel)",img:"assets/sinks.webp"},
-    {id:"k2",c:"sinks",n:"Single-Bowl Kitchen Sink + Waste",img:"assets/sinks.webp"},
-    {id:"p1",c:"pipes",n:"PVC Pipe 4&quot; x 6m (Pressure)",img:"assets/fittings.webp"},
-    {id:"p2",c:"pipes",n:"PVC Gutter 4m + Brackets",img:"assets/fittings.webp"},
-    {id:"p3",c:"pipes",n:"GI Fittings Assorted (per piece)",img:"assets/fittings.webp"},
-    {id:"a1",c:"accessories",n:"Towel Bar 60cm (Chrome)",img:"assets/real-accessories.webp"},
-    {id:"a2",c:"accessories",n:"Ceramic Soap Dish (Chrome)",img:"assets/real-accessories.webp"},
-    {id:"a3",c:"accessories",n:"Robe Hook Set of 2 (Matte Black)",img:"assets/real-accessories.webp"},
-    {id:"a4",c:"accessories",n:"Bathroom Shelf Corner (Gold)",img:"assets/real-accessories.webp"}
-  ];
-  var cart={}; try{cart=JSON.parse(localStorage.getItem("bpc_cart")||"{}")}catch(e){cart={}}
-  var q="",cat="all";
-  var grid=document.getElementById("shopGrid");
-  function save(){try{localStorage.setItem("bpc_cart",JSON.stringify(cart))}catch(e){}}
-  function askLink(p){return "https://wa.me/"+WA+"?text="+encodeURIComponent("Hello Brazil Plumbing Center, what is the price of "+p.n.replace(/&quot;/g,'"')+"?")}
-  function render(){
-    var f=P.filter(function(p){return (cat==="all"||p.c===cat)&&p.n.toLowerCase().indexOf(q)>-1});
-    grid.innerHTML=f.map(function(p){
-      return '<article class="pc">'+(p.tag?'<span class="badge-new">'+p.tag+'</span>':'')+
-        '<div class="ph"><img src="'+p.img+'" alt="'+p.n.replace(/"/g,"&quot;")+'" loading="lazy"></div>'+
-        '<div class="body"><span class="cat">'+catName(p.c)+'</span><span class="nm">'+p.n+'</span>'+
-        '<a class="ask" href="'+askLink(p)+'" target="_blank" rel="noopener">&#128172; Ask price on WhatsApp</a>'+
-        '<button class="atc" data-add="'+p.id+'">Add to Order</button></div></article>';
-    }).join("")||'<p style="grid-column:1/-1;text-align:center;color:#5c667e;padding:30px">No products match your search. Ask us on WhatsApp &mdash; we stock much more!</p>';
-    grid.querySelectorAll("[data-add]").forEach(function(b){b.onclick=function(){add(b.dataset.add)}});
-  }
-  function catName(c){return {toilets:"Toilets & Basins",showers:"Showers & Mixers",sinks:"Kitchen Sinks",pipes:"Pipes & Fittings",accessories:"Accessories"}[c]||""}
-  function add(id){cart[id]=(cart[id]||0)+1;save();drawCart()}
-  document.getElementById("shopQ").addEventListener("input",function(){q=this.value.toLowerCase();render()});
-  document.getElementById("shopChips").addEventListener("click",function(e){
-    if(e.target.tagName!=="BUTTON")return;
-    document.querySelectorAll("#shopChips button").forEach(function(b){b.classList.remove("on")});
-    e.target.classList.add("on");cat=e.target.dataset.c;render();
-  });
-  function drawCart(){
-    var n=0,html="";
-    Object.keys(cart).forEach(function(id){
-      var p=P.find(function(x){return x.id===id}); if(!p)return;
-      n+=cart[id];
-      html+='<div class="ci"><img src="'+p.img+'" alt=""><div class="t">'+p.n+'<small>Qty: '+cart[id]+'</small></div>'+
-        '<div class="qty"><button data-d="'+id+'">&minus;</button><span>'+cart[id]+'</span><button data-u="'+id+'">+</button></div>'+
-        '<button class="rm" data-r="'+id+'">Remove</button></div>';
-    });
-    document.getElementById("cartItems").innerHTML=html||'<p style="text-align:center;color:#5c667e;padding:24px 8px">Your order list is empty. Add plumbing items from the shop above.</p>';
-    document.getElementById("cartN").textContent=n;
-    var lines=Object.keys(cart).map(function(id){var p=P.find(function(x){return x.id===id});return cart[id]+" x "+p.n});
-    var msg="Hello Brazil Plumbing Center, I would like to ORDER:%0A"+(lines.length?lines.join("%0A")+"%0A%0APlease send me the prices and delivery cost.":"(I need advice)");
-    document.getElementById("waOrder").href="https://wa.me/"+WA+"?text="+msg;
-    save();
-  }
-  document.getElementById("cartItems").addEventListener("click",function(e){
-    var b=e.target.closest("button"); if(!b||!b.dataset)return;
-    var id=b.dataset.d||b.dataset.u||b.dataset.r;
-    if(b.dataset.d){cart[id]--; if(cart[id]<=0)delete cart[id]}
-    if(b.dataset.u)cart[id]=(cart[id]||0)+1;
-    if(b.dataset.r)delete cart[id];
-    drawCart();
-  });
-  var dr=document.getElementById("cartDrawer");
-  function openC(){dr.classList.add("open");dr.setAttribute("aria-hidden","false");drawCart()}
-  function closeC(){dr.classList.remove("open");dr.setAttribute("aria-hidden","true")}
-  document.getElementById("cartFab").onclick=openC;
-  document.getElementById("cartClose").onclick=closeC;
-  document.getElementById("cartVeil").onclick=closeC;
-  render();drawCart();
 })();
 </script>
 </body>
